@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Andijon davlat pedagogika instituti MAGISTERIUM ilmiy jurnali">
+  <title>MAGISTERIUM — Ilmiy jurnal</title>
+  <style>
+    :root {
+      --navy: #073b68;
+      --blue: #0875b9;
+      --light-blue: #eaf5fc;
+      --gold: #d7b76a;
+      --ink: #17324a;
+      --muted: #587084;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 50% 42%, rgba(8,117,185,.09), transparent 31rem),
+        linear-gradient(180deg, #f8fcff 0%, #edf6fc 100%);
+    }
+
+    .topline {
+      height: 7px;
+      background: linear-gradient(90deg, var(--navy), var(--blue), var(--gold), var(--blue), var(--navy));
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      min-height: calc(100vh - 7px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ministry {
+      padding: 27px 12px 22px;
+      text-align: center;
+      color: var(--navy);
+      font-size: clamp(13px, 1.7vw, 18px);
+      font-weight: 750;
+      line-height: 1.5;
+      letter-spacing: .055em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(7,59,104,.16);
+    }
+
+    .ministry::after {
+      content: "";
+      display: block;
+      width: 74px;
+      height: 3px;
+      margin: 16px auto 0;
+      border-radius: 5px;
+      background: var(--gold);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(30px, 5vh, 58px) 0 42px;
+      text-align: center;
+    }
+
+    .logo-frame {
+      position: relative;
+      width: clamp(240px, 47vw, 440px);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 30px;
+      isolation: isolate;
+    }
+
+    .logo-frame::before,
+    .logo-frame::after {
+      content: "";
+      position: absolute;
+      inset: -13px;
+      border: 1px solid rgba(8,117,185,.25);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .logo-frame::after {
+      inset: -23px;
+      border-style: dashed;
+      border-color: rgba(215,183,106,.7);
+      animation: slow-rotate 55s linear infinite;
+    }
+
+    .logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 24px rgba(7,59,104,.15));
+      animation: appear .9s ease-out both;
+    }
+
+    .institution {
+      margin: 4px 0 10px;
+      color: var(--navy);
+      font-size: clamp(18px, 2.8vw, 27px);
+      font-weight: 750;
+      letter-spacing: .015em;
+      line-height: 1.35;
+    }
+
+    .journal-name {
+      margin: 0;
+      color: var(--blue);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(32px, 6vw, 64px);
+      line-height: 1.08;
+      letter-spacing: .09em;
+      font-weight: 800;
+      text-shadow: 0 3px 0 rgba(8,117,185,.08);
+    }
+
+    .journal-subtitle {
+      margin: 13px 0 0;
+      color: var(--muted);
+      font-size: clamp(14px, 2vw, 19px);
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 25px auto 0;
+      color: var(--gold);
+    }
+
+    .ornament span {
+      display: block;
+      width: clamp(45px, 8vw, 90px);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+
+    .ornament span:last-child {
+      transform: rotate(180deg);
+    }
+
+    .ornament i {
+      width: 7px;
+      height: 7px;
+      display: block;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    footer {
+      padding: 17px 10px 23px;
+      text-align: center;
+      color: #6a8295;
+      font-size: 12px;
+      border-top: 1px solid rgba(7,59,104,.12);
+    }
+
+    @keyframes slow-rotate { to { transform: rotate(360deg); } }
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(12px) scale(.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (max-width: 520px) {
+      .page { width: min(100% - 30px, 1120px); }
+      .ministry { padding-top: 22px; padding-bottom: 19px; letter-spacing: .025em; }
+      main { padding-top: 44px; padding-bottom: 38px; }
+      .logo-frame { margin-bottom: 29px; }
+      .logo-frame::before { inset: -8px; }
+      .logo-frame::after { inset: -15px; }
+      .journal-name { letter-spacing: .055em; }
+      .journal-subtitle { letter-spacing: .08em; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline" aria-hidden="true"></div>
+
+  <div class="page">
+    <header class="ministry">
+      O‘zbekiston Respublikasi <br> Ta’lim va ilm-fan vazirligi
+    </header>
+
+    <main>
+      <div class="logo-frame">
+        <img class="logo" src="./imagess/image-removebg-preview (1).png"
+             alt="Andijon davlat pedagogika instituti logotipi">
+      </div>
+
+      <p class="institution">Andijon davlat pedagogika instituti</p>
+      <h1 class="journal-name">MAGISTERIUM</h1>
+      <p class="journal-subtitle" style="color: #126bf9; font-size: 25px;" >Ilmiy jurnali</p>
+
+      <div class="ornament" aria-hidden="true">
+        <span></span><i></i><i></i><i></i><span></span>
+      </div>
+    </main>
+
+    <footer>
+        <p style="font-size: 15px;">
+      © <span><a style="color: #6a8295;" href="#"> Magisterium Ilmiy jurnali bosh muhariri: Yakubov Nazirjon Salijonovich </a> <br></span> Tahririyat manzili: 170100 Andijon shahri, “Do‘stlik” ko‘chasi, 4-uy </p>
+      
+    </footer>
+    
+  </div>
+
+ 
+</body>
+</html>
